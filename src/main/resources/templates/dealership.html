@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dealership</title>
+</head>
+<body>
+<h1>Dealership</h1>
+<h2>Viewing cars on sale</h2>
+
+<table>
+    <tr>
+        <th>Brand car</th>
+        <th>Model car</th>
+        <th>Year of release car</th>
+        <th>Car PRICE</th>
+    </tr>
+    <tr th:each="p: ${dealership}" >
+        <td th:text="${p.brand}"></td>
+        <td th:text="${p.model}"></td>
+        <td th:text="${p.year}"></td>
+        <td th:text="${p.price}"></td>
+    </tr>
+</table>
+
+<h2>Add a product</h2>
+<form action="/dealership" method="post">
+    Brand: <input type="text" name="brand"><br />
+    Model: <input type="text" name="model"><br />
+    Year: <input type="number" min="1900" max="2024" step="1" value="2020" name="year"><br />
+    Price: <input type="number" step="any" name="price"><br />
+    <button type="submit">Add car</button>
+</form>
+</body>
+</html>
